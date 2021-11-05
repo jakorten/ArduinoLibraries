@@ -22,7 +22,6 @@
   by Scott Fitzgerald
   modified 9 Jan 2017
   by Arturo Guadalupi
-
   modified 5 Nov 2021
   by Johan Korten
 
