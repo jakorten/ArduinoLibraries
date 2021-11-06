@@ -33,29 +33,39 @@
 // constants won't change. Used here to set a pin number:
 #define healthLED 12
 #define heartBeatLED 14
+#define progLED 2
 
 // Variables will change:
 int ledStateHB = LOW;             // ledState used to set the LED
 int ledStateHealth = LOW;
+int ledStateProg = LOW;             // ledState used to set the LED
 
 // Generally, you should use "unsigned long" for variables that hold time
 // The value will quickly become too large for an int to store
 unsigned long previousMillisHB = 0;        // will store last time LED was updated
 unsigned long previousMillisHealth = 0;
+unsigned long previousMillisProg = 0;
 
 // constants won't change:
 const long intervalHB = 100;           // interval at which to blink (milliseconds)
 const long intervalHealth = 500;           // interval at which to blink (milliseconds)
+const long intervalProg = 100;           // interval at which to blink (milliseconds)
 
 void setup() {
   // set the digital pin as output:
   pinMode(healthLED, OUTPUT);
   pinMode(heartBeatLED, OUTPUT);
+  pinMode(progLED, OUTPUT);
 }
 
 void loop() {
   updateHeartBeat();
   updateHealthLed();
+  updateProgLed();
+}
+
+void updateProgLed() {
+  updateStateAsynch(previousMillisProg, intervalProg, ledStateProg, progLED);
 }
 
 void updateHeartBeat() {
